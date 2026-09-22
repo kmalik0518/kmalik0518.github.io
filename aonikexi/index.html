@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="奥妮克希亚的巢穴深度攻略指南：副本背景故事、BOSS机制详解、团队配置建议及掉落物品查询。包含详细战术分析与通关技巧。">
+    <meta name="keywords" content="奥妮克希亚的巢穴,魔兽世界,副本攻略,奥妮克希亚,黑龙公主,BOSS攻略">
+    <title>奥妮克希亚的巢穴 - 魔兽世界经典副本深度攻略与通关指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-dark: #0f0f13;
+            --bg-panel: #1a1a24;
+            --bg-card: #23232f;
+            --text-main: #e0e0e0;
+            --text-muted: #9ca3af;
+            --accent-gold: #c69c6d;
+            --accent-red: #ff4d4d;
+            --accent-blue: #4da6ff;
+            --accent-purple: #9b59b6;
+            --border-color: #333340;
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft YaHei", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(15, 15, 19, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-red);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://picsum.photos/seed/dragon/1600/600');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, var(--bg-dark), transparent);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.8);
+        }
+
+        .hero h1 span {
+            color: var(--accent-red);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-red);
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #cc0000;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+            margin-left: 10px;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(198, 156, 109, 0.1);
+            color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            border-left: 4px solid var(--accent-gold);
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            padding-left: 19px;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background-color: var(--bg-panel);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+        }
+
+        .info-card h3 {
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .info-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Boss List */
+        .boss-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .boss-item {
+            background-color: var(--bg-card);
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 3px solid var(--text-muted);
+            transition: all 0.2s;
+        }
+
+        .boss-item:hover {
+            background-color: var(--bg-panel);
+            border-left-color: var(--accent-red);
+        }
+
+        .boss-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .boss-info {
+            flex-grow: 1;
+        }
+
+        .boss-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .boss-role {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .boss-mechanic {
+            font-size: 0.9rem;
+            color: var(--accent-blue);
+        }
+
+        /* Table */
+        .drop-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--bg-panel);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .drop-table th, .drop-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .drop-table th {
+            background-color: rgba(255,255,255,0.05);
+            font-weight: 600;
+            color: var(--accent-gold);
+        }
+
+        .drop-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .drop-table tr:hover td {
+            background-color: rgba(255,255,255,0.02);
+        }
+
+        /* Guide Content */
+        .guide-content {
+            background-color: var(--bg-panel);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .guide-content h2 {
+            color: var(--text-main);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .guide-content p {
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+
+        .guide-content ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .guide-content li {
+            margin-bottom: 8px;
+            color: var(--text-muted);
+        }
+
+        .guide-content strong {
+            color: var(--text-main);
+        }
+
+        /* FAQ */
+        .faq-item {
+            background-color: var(--bg-card);
+            margin-bottom: 10px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .faq-question:hover {
+            background-color: rgba(255,255,255,0.02);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-muted);
+            display: none;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--accent-gold);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0e;
+            padding: 40px 0;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .boss-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .boss-mechanic { font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span>⚔️</span> 魔兽世界攻略站
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="active">副本首页</a>
+                <a href="#">职业指南</a>
+                <a href="#">装备数据库</a>
+                <a href="#">社区论坛</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>奥妮克希亚的巢穴 <span>攻略</span></h1>
+                <p>探索黑龙公主的黑暗领地，掌握核心机制，带领团队征服纳克萨玛斯外围的最终挑战。</p>
+                <div>
+                    <button class="btn" onclick="document.getElementById('bosses').scrollIntoView({behavior: 'smooth'})">查看BOSS机制</button>
+                    <button class="btn btn-secondary" onclick="document.getElementById('drops').scrollIntoView({behavior: 'smooth'})">查询掉落物品</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Basic Info -->
+        <section class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📍 副本位置</h3>
+                    <p>位于纳克萨玛斯外围的黑暗之门区域。入口隐藏在一条狭窄的隧道中，需小心潜行。</p>
+                </div>
+                <div class="info-card">
+                    <h3>👥 推荐人数</h3>
+                    <p>标准配置：40人团队（怀旧服）。普通难度建议20人，英雄难度40人。</p>
+                </div>
+                <div class="info-card">
+                    <h3>⚔️ 推荐等级</h3>
+                    <p>建议团队平均等级达到 60级，装备达到 T1 级别以应对高强度物理与魔法伤害。</p>
+                </div>
+                <div class="info-card">
+                    <h3>📜 备战建议</h3>
+                    <p>准备大量对抗魔法伤害的药水，以及针对物理攻击的防御卷轴。注意清理沿途的精英怪。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Boss Mechanics -->
+        <section id="bosses" class="container">
+            <h2 class="section-title">BOSS 战详解</h2>
+            <p class="section-subtitle">巢穴共包含 5 个房间，5 个精英 BOSS。核心机制在于控制仇恨与躲避范围伤害。</p>
+            
+            <div class="boss-list">
+                <!-- Boss 1 -->
+                <div class="boss-item">
+                    <div class="boss-icon">🐉</div>
+                    <div class="boss-info">
+                        <div class="boss-name">奥妮克希亚</div>
+                        <div class="boss-role">最终BOSS - 黑龙公主</div>
+                    </div>
+                    <div class="boss-mechanic">
+                        <strong>核心机制：</strong> 空中飞行阶段，需集火打断龙息并控制地面坦克仇恨。
+                    </div>
+                </div>
+
+                <!-- Boss 2 -->
+                <div class="boss-item">
+                    <div class="boss-icon">🔥</div>
+                    <div class="boss-info">
+                        <div class="boss-name">塔拉拉</div>
+                        <div class="boss-role">精英龙人守护者</div>
+                    </div>
+                    <div class="boss-mechanic">
+                        <strong>核心机制：</strong> 火焰新星与暗影新星交替释放，需分散站位。
+                    </div>
+                </div>
+
+                <!-- Boss 3 -->
+                <div class="boss-item">
+                    <div class="boss-icon">🦅</div>
+                    <div class="boss-info">
+                        <div class="boss-name">阿格玛</div>
+                        <div class="boss-role">精英红龙守卫</div>
+                    </div>
+                    <div class="boss-mechanic">
+                        <strong>核心机制：</strong> 群体火焰冲击，治疗需优先驱散增益并保持坦克血线。
+                    </div>
+                </div>
+
+                <!-- Boss 4 -->
+                <div class="boss-item">
+                    <div class="boss-icon">⚡</div>
+                    <div class="boss-info">
+                        <div class="boss-name">阿格玛之锤</div>
+                        <div class="boss-role">精英元素生物</div>
+                    </div>
+                    <div class="boss-mechanic">
+                        <strong>核心机制：</strong> 雷电风暴与治疗链，DPS需在狂暴条读满前击杀。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Guide -->
+        <section class="container">
+            <div class="guide-content">
+                <h2>奥妮克希亚BOSS战术指南</h2>
+                <p>作为经典的40人副本，奥妮克希亚的巢穴对团队的配合要求极高。以下是针对最终BOSS奥妮克希亚的详细战术：</p>
+                
+                <h3>1. 入口准备</h3>
+                <p>进入巢穴后，不要急于冲向BOSS。清理掉沿途的精英龙人，尤其是施法者，以免在战斗中被干扰。建议由潜行职业清理掉第一波巡逻怪。</p>
+
+                <h3>2. 战斗阶段控制</h3>
+                <ul>
+                    <li><strong>地面阶段：</strong> 坦克需保持高仇恨，防止BOSS施放龙息。远程DPS需站在BOSS背侧，避免吃到龙息伤害。</li>
+                    <li><strong>飞行阶段：</strong> BOSS会飞起并在地图上召唤小怪。此时坦克需将仇恨转移到小怪身上，防止小怪攻击治疗。全体队员需躲避BOSS的火焰喷射。</li>
+                    <li><strong>终结技：</strong> 当BOSS血量低于10%时，会进入狂暴状态并再次飞起。此时必须全团爆发输出，确保在下一轮落地前将其击杀。</li>
+                </ul>
+
+                <h3>3. 职业分工建议</h3>
+                <p><strong>坦克：</strong> 需要具备极高的装备等级和仇恨控制能力。建议携带防御姿态和盾牌格挡技能。</p>
+                <p><strong>治疗：</strong> 治疗量需要覆盖全团AOE伤害，特别是对物理伤害的防御。牧师应准备大量的暗影防护药水。</p>
+                <p><strong>DPS：</strong> 法师和术士负责打断，猎人负责风筝小怪，战士和圣骑士负责正面抗怪。</p>
+            </div>
+        </section>
+
+        <!-- Loot Table -->
+        <section id="drops" class="container">
+            <h2 class="section-title">稀有掉落物品</h2>
+            <p class="section-subtitle">击败奥妮克希亚有机会获得黑龙系列装备。</p>
+            
+            <table class="drop-table">
+                <thead>
+                    <tr>
+                        <th>物品名称</th>
+                        <th>部位</th>
+                        <th>来源</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>奥妮克希亚的头饰</td>
+                        <td>头部</td>
+                        <td>奥妮克希亚</td>
+                        <td>法系输出毕业装备</td>
+                    </tr>
+                    <tr>
+                        <td>奥妮克希亚的鳞片</td>
+                        <td>护手</td>
+                        <td>奥妮克希亚</td>
+                        <td>物理输出首选</td>
+                    </tr>
+                    <tr>
+                        <td>黑龙之鳞</td>
+                        <td>披风</td>
+                        <td>阿格玛之锤</td>
+                        <td>提供高额敏捷</td>
+                    </tr>
+                    <tr>
+                        <td>奥妮克希亚的宝珠</td>
+                        <td>副手</td>
+                        <td>塔拉拉</td>
+                        <td>增加法术强度</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- FAQ -->
+        <section class="container">
+            <h2 class="section-title">常见问题 (FAQ)</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">奥妮克希亚的巢穴需要多少级才能进？</div>
+                <div class="faq-answer">在怀旧服中，玩家等级需达到60级。在正式服早期版本中，进入等级要求较低，但建议60级以获得最佳体验。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">如何快速找到副本入口？</div>
+                <div class="faq-answer">入口位于安多哈尔废墟的黑暗之门区域，隐藏在一条向下的隧道内，需通过传送门或步行进入。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">副本掉落的装备可以交易吗？</div>
+                <div class="faq-answer">是的，该副本掉落的装备均为可交易物品，通常由团队根据职业需求和DKP积分进行分配。</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 魔兽世界攻略站. 本站内容仅供玩家参考，与暴雪娱乐公司无关。</p>
+            <p style="margin-top: 10px; font-size: 0.8rem; color: #555;">本页面为技术演示生成的静态页面。</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Logic
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Open clicked if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
