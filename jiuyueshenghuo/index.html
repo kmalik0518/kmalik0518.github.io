@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="九月生活官方首页，提供高品质家居生活、家居用品、生活美学与生活方式指南。探索秋季家居灵感，获取实用的家居搭配建议。">
+    <meta name="keywords" content="九月生活,家居生活,家居用品,生活美学,秋季家居,家居搭配">
+    <title>九月生活-品质家居生活与美学指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8c7b75;
+            --primary-light: #f4f1ea;
+            --secondary-color: #d4cfc9;
+            --text-dark: #2c2c2c;
+            --text-gray: #666666;
+            --bg-white: #ffffff;
+            --bg-off-white: #fcfcfc;
+            --spacing-unit: 8px;
+            --container-width: 1200px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-off-white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .text-center { text-align: center; }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 15px auto 0;
+        }
+
+        .section-subtitle {
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            font-size: 1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-icon {
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://picsum.photos/seed/septemberlife_hero/1920/1080.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.85);
+            transition: transform 10s ease;
+        }
+
+        .hero:hover .hero-bg {
+            transform: scale(1.05);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--bg-white);
+            max-width: 600px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background-color: rgba(140, 123, 117, 0.9);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+            border-radius: 4px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background-color: #7a6b66;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(140, 123, 117, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--bg-white);
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--bg-white);
+            color: var(--text-dark);
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--bg-white);
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            background-color: var(--primary-light);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Categories Section */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category-card {
+            position: relative;
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .category-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 25px;
+        }
+
+        .category-title {
+            color: var(--bg-white);
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        /* Product Showcase */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--bg-white);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid #eee;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 260px;
+            background-color: #f0f0f0;
+            position: relative;
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            border-radius: 2px;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            margin-bottom: 5px;
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .btn-sm {
+            padding: 6px 15px;
+            font-size: 0.85rem;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-sm:hover {
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+        }
+
+        /* Lifestyle Guide Section */
+        .guide-section {
+            background-color: var(--primary-light);
+        }
+
+        .guide-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .guide-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .guide-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .guide-content p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .guide-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .guide-list li::before {
+            content: '✓';
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 24px;
+            height: 24px;
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+            border-radius: 50%;
+            margin-right: 12px;
+            font-size: 0.8rem;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background-color: var(--text-dark);
+            color: var(--bg-white);
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 4px;
+            border: none;
+            outline: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f8f8f8;
+            padding: 60px 0 30px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text-gray);
+            margin-top: 15px;
+            font-size: 0.95rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #eaeaea;
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 2.8rem; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .categories-grid { grid-template-columns: repeat(2, 1fr); }
+            .guide-layout { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner { flex-direction: column; height: auto; padding: 15px 0; }
+            .nav-menu { flex-direction: column; gap: 15px; margin: 15px 0; width: 100%; text-align: center; }
+            .hero { height: 400px; }
+            .hero h1 { font-size: 2rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .categories-grid { grid-template-columns: 1fr; }
+            .newsletter-form { flex-direction: column; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">九月生活<span>.</span></a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#" class="nav-link active">首页</a></li>
+                    <li><a href="#" class="nav-link">家居好物</a></li>
+                    <li><a href="#" class="nav-link">生活美学</a></li>
+                    <li><a href="#" class="nav-link">搭配指南</a></li>
+                    <li><a href="#" class="nav-link">关于我们</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="btn-icon">🔍</div>
+                <div class="btn-icon">🛒</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-tag">2024 秋季焕新</span>
+                    <h1>让生活回归自然本真</h1>
+                    <p>探索九月生活系列家居灵感，在秋日的暖阳中，发现舒适与美好的平衡。从软装搭配到日常器物，为您打造有温度的居住空间。</p>
+                    <div class="hero-btns">
+                        <a href="#products" class="btn">浏览精选商品</a>
+                        <a href="#guide" class="btn btn-outline">阅读搭配指南</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="container">
+            <div class="features">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🌿</div>
+                        <h3 class="feature-title">天然材质</h3>
+                        <p class="feature-desc">精选环保棉麻、原木与天然石材，呵护家人健康。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎨</div>
+                        <h3 class="feature-title">极简设计</h3>
+                        <p class="feature-desc">去除繁杂装饰，以线条与留白展现空间之美。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🛋️</div>
+                        <h3 class="feature-title">人体工学</h3>
+                        <p class="feature-desc">每一处细节都经过反复考量，只为极致的舒适体验。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🚚</div>
+                        <h3 class="feature-title">贴心服务</h3>
+                        <p class="feature-desc">提供专业设计咨询与无忧退换货服务。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title">生活分类</h2>
+                    <p class="section-subtitle">按需选择，打造专属您的理想空间</p>
+                </div>
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <img src="https://picsum.photos/seed/furniture/400/300.jpg" alt="家具系列">
+                        <div class="category-overlay">
+                            <span class="category-title">家具系列</span>
+                        </div>
+                    </div>
+                    <div class="category-card">
+                        <img src="https://picsum.photos/seed/decor/400/300.jpg" alt="软装搭配">
+                        <div class="category-overlay">
+                            <span class="category-title">软装搭配</span>
+                        </div>
+                    </div>
+                    <div class="category-card">
+                        <img src="https://picsum.photos/seed/lamp/400/300.jpg" alt="照明设计">
+                        <div class="category-overlay">
+                            <span class="category-title">照明设计</span>
+                        </div>
+                    </div>
+                    <div class="category-card">
+                        <img src="https://picsum.photos/seed/textile/400/300.jpg" alt="纺织品">
+                        <div class="category-overlay">
+                            <span class="category-title">纺织品</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products -->
+        <section class="section-padding" id="products" style="background-color: var(--bg-white);">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title">本月推荐</h2>
+                    <p class="section-subtitle">甄选九月生活当季热销单品</p>
+                </div>
+                <div class="product-grid">
+                    <article class="product-card">
+                        <div class="product-image">
+                            <span class="product-tag">新品</span>
+                            <img src="https://picsum.photos/seed/chair/400/400.jpg" alt="北欧简约沙发">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">家具 · 客厅</div>
+                            <h3 class="product-name">北欧简约休闲沙发</h3>
+                            <div class="product-footer">
+                                <span class="product-price">¥2,899</span>
+                                <button class="btn-sm">查看详情</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-image">
+                            <span class="product-tag">热销</span>
+                            <img src="https://picsum.photos/seed/vase/400/400.jpg" alt="陶瓷花瓶">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">装饰 · 零件</div>
+                            <h3 class="product-name">手工陶瓷花瓶</h3>
+                            <div class="product-footer">
+                                <span class="product-price">¥359</span>
+                                <button class="btn-sm">查看详情</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="https://picsum.photos/seed/lamp/400/400.jpg" alt="落地灯">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">照明 · 房间</div>
+                            <h3 class="product-name">温润落地灯</h3>
+                            <div class="product-footer">
+                                <span class="product-price">¥599</span>
+                                <button class="btn-sm">查看详情</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-image">
+                            <span class="product-tag">折扣</span>
+                            <img src="https://picsum.photos/seed/cushion/400/400.jpg" alt="棉麻抱枕">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">纺织品 · 家居</div>
+                            <h3 class="product-name">原色棉麻抱枕套</h3>
+                            <div class="product-footer">
+                                <span class="product-price">¥129</span>
+                                <button class="btn-sm">查看详情</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="text-center" style="margin-top: 50px;">
+                    <a href="#" class="btn" style="background-color: var(--text-dark);">查看全部商品</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section class="section-padding guide-section" id="guide">
+            <div class="container">
+                <div class="guide-layout">
+                    <div class="guide-image">
+                        <img src="https://picsum.photos/seed/home_interior/800/600.jpg" alt="秋季家居搭配案例">
+                    </div>
+                    <div class="guide-content">
+                        <h2>秋季家居配色指南</h2>
+                        <p>九月是换季的好时节，如何通过色彩搭配让家更有温度？本期指南将为您介绍秋季家居配色的黄金法则。</p>
+                        <ul class="guide-list">
+                            <li>大地色系（棕色、米色、卡其）营造温暖氛围</li>
+                            <li>金属色点缀（黄铜、铁艺）增加质感与光泽</li>
+                            <li>深色家具与浅色背景的平衡搭配技巧</li>
+                            <li>利用自然光线优化秋季家居视觉效果</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline" style="color: var(--text-dark); border-color: var(--text-dark);">阅读完整指南</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="section-padding newsletter">
+            <div class="container">
+                <h2>订阅九月生活简报</h2>
+                <p>每周获取家居灵感、新品预告及独家优惠信息。</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('感谢您的订阅！');">
+                    <input type="email" class="newsletter-input" placeholder="请输入您的电子邮箱" required>
+                    <button type="submit" class="btn">立即订阅</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">九月生活<span>.</span></a>
+                    <p>致力于为现代家庭提供高品质、有设计感的家居生活解决方案，让每一天都充满舒适与美好。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>购物指南</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">如何下单</a></li>
+                        <li><a href="#">配送说明</a></li>
+                        <li><a href="#">退换货政策</a></li>
+                        <li><a href="#">支付方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>客户服务</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                        <li><a href="#">隐私条款</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">获取最新家居资讯与设计灵感。</p>
+                    <div style="font-size: 1.5rem;">
+                        📷 📘 🐦
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 九月生活 版权所有. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                      </html>
