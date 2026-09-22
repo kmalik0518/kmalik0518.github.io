@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="帝舵手表维修中心提供专业的帝舵手表维修、保养、机芯清洗及表带更换服务。拥有瑞士原厂配件，技师团队经验丰富，支持全国联保，价格透明，售后无忧。">
+    <meta name="keywords" content="帝舵手表维修中心,帝舵维修,帝舵保养,帝舵表带更换,帝舵机芯清洗">
+    <title>帝舵手表维修中心-专业帝舵手表维修保养与配件更换服务</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #c5a059; /* 香槟金，符合腕表质感 */
+            --bg-light: #f8f9fa;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --container-width: 1200px;
+            --spacing-section: 60px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-center { text-align: center; }
+        .text-accent { color: var(--accent-color); }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 4px;
+            font-weight: 500;
+            border: 1px solid var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-size: 12px;
+            padding: 8px 0;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-main {
+            padding: 20px 0;
+        }
+
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--accent-color);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+            font-size: 14px;
+        }
+
+        .contact-info .phone {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/tudorwatch/1920/800.jpg') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Services Section */
+        .services {
+            padding: var(--spacing-section) 0;
+            background-color: var(--bg-light);
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .section-header p {
+            color: var(--text-gray);
+            margin-top: 10px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon-box {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(197, 160, 89, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--accent-color);
+            font-size: 28px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            padding: var(--spacing-section) 0;
+        }
+
+        .features-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .features-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .features-list {
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            margin-bottom: 25px;
+        }
+
+        .feature-icon {
+            min-width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .feature-text p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* Process Section */
+        .process {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: var(--spacing-section) 0;
+        }
+
+        .process .section-header h2 {
+            color: var(--white);
+        }
+        
+        .process .section-header h2::after {
+            background-color: var(--white);
+        }
+        
+        .process .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background-color: rgba(255,255,255,0.2);
+            z-index: 0;
+        }
+
+        .step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            flex: 1;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+            border: 4px solid var(--primary-color);
+        }
+
+        .step h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: var(--spacing-section) 0;
+            background-color: var(--bg-light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            margin-bottom: 15px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-gray);
+            font-size: 15px;
+            border-top: 1px solid #eee;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #aaa;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-top { display: none; }
+            
+            .header-main .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-menu {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .contact-info {
+                text-align: center;
+            }
+
+            .hero h1 { font-size: 32px; }
+            
+            .features-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .process-steps::before {
+                width: 2px;
+                height: 100%;
+                left: 50%;
+                top: 0;
+                transform: translateX(-50%);
+            }
+            
+            .step {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                text-align: left;
+            }
+            
+            .step-number {
+                margin: 0;
+                flex-shrink: 0;
+            }
+            
+            .step-content {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="header-top">
+        <div class="container">
+            <span>全国联保 · 原厂配件 · 7天无理由退换</span>
+            <span>服务时间：周一至周日 9:00-18:00</span>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header>
+        <div class="header-main">
+            <div class="container">
+                <a href="#" class="logo">
+                    <span>◆</span> 帝舵手表维修中心
+                </a>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#home" class="active">首页</a></li>
+                        <li><a href="#services">维修项目</a></li>
+                        <li><a href="#process">服务流程</a></li>
+                        <li><a href="#faq">常见问题</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                    </ul>
+                </nav>
+                <div class="contact-info">
+                    <span class="phone">400-888-1234</span>
+                    <span>微信咨询</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>专业帝舵手表维修与保养服务</h1>
+                <p>专注帝舵腕表维修十年，提供精准机芯修复、防水测试及外观翻新服务。瑞士原厂配件，资深技师团队，确保每一块手表恢复最佳状态。</p>
+                <a href="#contact" class="btn">立即预约维修</a>
+                <a href="#services" class="btn btn-outline" style="margin-left: 10px; border-color: #fff; color: #fff;">了解服务</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>核心维修服务</h2>
+                <p>提供全方位的帝舵手表维修解决方案，涵盖机械与石英表</p>
+            </div>
+            
+            <div class="services-grid">
+                <article class="service-card">
+                    <div class="icon-box">⚙️</div>
+                    <h3>机芯维修与保养</h3>
+                    <p>针对帝舵手表走时不准、停走、偷停等故障进行深度检测。包括机芯拆解清洗、更换磨损零件、润滑保养及精准校表。</p>
+                </article>
+
+                <article class="service-card">
+                    <div class="icon-box">💧</div>
+                    <h3>防水性能修复</h3>
+                    <p>帝舵手表防水圈老化会导致进水。我们提供专业防水测试、表镜更换及后盖密封处理，恢复手表原有的防水等级。</p>
+                </article>
+
+                <article class="service-card">
+                    <div class="icon-box">📿</div>
+                    <h3>表带更换与修复</h3>
+                    <p>提供原装真皮、金属及橡胶表带更换服务。支持定制长度，修复断裂表扣，解决表带磨损、变形及过敏问题。</p>
+                </article>
+
+                <article class="service-card">
+                    <div class="icon-box">💎</div>
+                    <h3>表镜更换与抛光</h3>
+                    <p>解决帝舵手表表镜划痕、碎裂问题。提供蓝宝石镜片更换及整体抛光服务，去除划痕，让表盘焕然一新。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="container">
+            <div class="features-wrapper">
+                <div class="features-text">
+                    <div class="section-header">
+                        <h2>为什么选择我们</h2>
+                        <p>作为专业的帝舵手表维修中心，我们致力于为每一位客户提供高品质的维修体验。</p>
+                    </div>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text">
+                                <h4>瑞士原厂配件</h4>
+                                <p>严格使用帝舵原厂正品配件，确保维修后的手表性能与原厂一致。</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text">
+                                <h4>资深技师团队</h4>
+                                <p>技师均持有瑞士钟表协会认证证书，拥有超过10年的维修经验。</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text">
+                                <h4>精准检测设备</h4>
+                                <p>配备瑞士进口的校表仪和深度防水测试仪，数据精准可靠。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="features-image">
+                    <!-- Placeholder for a high-quality watch repair image -->
+                    <img src="https://picsum.photos/seed/watchrepair/600/400.jpg" alt="专业手表维修技师工作场景">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>维修服务流程</h2>
+                <p>简单四步，轻松解决您的爱表问题</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>在线咨询/电话预约</h3>
+                        <p>描述手表故障情况，预约上门或送修时间</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>初步检测与报价</h3>
+                        <p>专业技师进行30分钟初步检测，确认维修方案及费用</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>维修与保养</h3>
+                        <p>在维修中心进行深度维修，全程透明，您可随时查看进度</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>质量验收与交付</h3>
+                        <p>经过72小时连续试走，确保走时精准，签署质保单</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>常见问题解答</h2>
+                <p>关于帝舵手表维修的常见疑问</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">帝舵手表进水后应该怎么处理？</div>
+                    <div class="faq-answer">发现手表进水后应立即停止佩戴，并尽快送至维修中心。切勿自行尝试拆卸。我们会进行拆解清洗、烘干及防水测试，防止锈蚀扩散。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">维修需要多长时间？</div>
+                    <div class="faq-answer">一般简单的表带更换或镜片更换可在当天完成。机芯维修通常需要3-7个工作日，具体时间取决于故障的复杂程度和配件库存情况。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">维修后的保修期是多久？</div>
+                    <div class="faq-answer">我们提供90天的质量保修服务。保修范围包括维修部位的功能故障，但不包括因意外跌落、进水等人为因素导致的损坏。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">你们提供上门取送服务吗？</div>
+                    <div class="faq-answer">是的，我们覆盖全国大部分城市，提供免费上门取送件服务。您只需在线预约，我们会有专人联系您安排具体时间。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="padding: 60px 0; background: #fff;">
+        <div class="container text-center">
+            <div class="section-header">
+                <h2>立即预约维修</h2>
+                <p>专业技师在线，24小时为您服务</p>
+            </div>
+            <div style="margin-top: 30px;">
+                <a href="tel:4008881234" class="btn" style="font-size: 18px; padding: 15px 40px;">400-888-1234</a>
+            </div>
+            <p style="margin-top: 20px; font-size: 14px; color: #666;">支持微信咨询：watch_repair_center</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>帝舵手表维修中心</h4>
+                    <p style="font-size: 14px; line-height: 1.8;">
+                        专注于高端腕表维修保养服务，以精湛的技艺和诚信的服务态度，赢得了广大客户的信赖。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#services">维修项目</a></li>
+                        <li><a href="#process">服务流程</a></li>
+                        <li><a href="#faq">常见问题</a></li>
+                        <li><a href="#">维修案例</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务项目</h4>
+                    <ul>
+                        <li><a href="#">机芯维修</a></li>
+                        <li><a href="#">防水检测</a></li>
+                        <li><a href="#">表带更换</a></li>
+                        <li><a href="#">外观翻新</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>电话：400-888-1234</li>
+                        <li>地址：北京市朝阳区手表维修产业园A座</li>
+                        <li>邮箱：service@tudor-repair.cn</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 帝舵手表维修中心 版权所有 | 京ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentNode;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+  </html>
